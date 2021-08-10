@@ -23,7 +23,19 @@ Python
 
 1. API Call-Alpaca
 2. Build indicators
+indicators-ST:
+Moving Averages
+% float Short
+Average Volume
+Relative Volume
+Optionable
 
+indicators-LT:
+Price to Earning Ratio
+Dividened %
+Debt to Equity Ratio
+Insider Ownership
+Market Cap
 
 ---
 
@@ -31,7 +43,7 @@ Python
 
 [Julia Guanzon](www.linkedin.com/in/julia-guanzon)
 
-[Saeed Raghib]
+Saeed Raghib
 
 [Prateek Sharma](https://www.linkedin.com/in/prateek-sharma-21a081180/)
 
