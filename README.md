@@ -30,8 +30,11 @@ Python
 ## Contributors
 
 [Julia Guanzon](www.linkedin.com/in/julia-guanzon)
+
 [Saeed Raghib]
-[Prateek Sharma](www.linkedin.com)
+
+[Prateek Sharma](https://www.linkedin.com/in/prateek-sharma-21a081180/)
+
 [Sam Weiner](www.linkedin.com/in/samuel-weiner)
 
 ---
