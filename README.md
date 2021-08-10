@@ -23,19 +23,20 @@ Python
 
 1. API Call-Alpaca
 2. Build indicators
+3. 
 indicators-ST:
-Moving Averages
-% float Short
-Average Volume
-Relative Volume
-Optionable
+* Moving Averages
+* % float Short
+* Average Volume
+* Relative Volume
+* Optionable
 
 indicators-LT:
-Price to Earning Ratio
-Dividened %
-Debt to Equity Ratio
-Insider Ownership
-Market Cap
+* Price to Earning Ratio
+* Dividened %
+* Debt to Equity Ratio
+* Insider Ownership
+* Market Cap
 
 ---
 
