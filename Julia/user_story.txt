@@ -1,5 +1,8 @@
 Quickr Pickr-User Story
 
+As an investor, I want to find a stock that fits my investment criteria, so that I can make an educated descision on what investment is best for me.
+
+
 * As a user of Quickr Pickr, I need the choice to make long-term and short-term investment.
 
 * As a user of Quickr Pickr, I want to pick the type of sector I invest my money in.
