@@ -1,0 +1,11 @@
+Quickr Pickr-User Story
+
+* As a user of Quickr Pickr, I need the choice to make long-term and short-term investment.
+
+* As a user of Quickr Pickr, I want to pick the type of sector I invest my money in.
+
+* As a user of Quickr Pickr, I want to see certain XindicatorsX.
+
+* As a user of Quickr Pickr, I want to know the current price of the stock I am looking at.
+
+* As a user of Quickr Pickr, I need historical data to make assumption about/ or already provide me with assumptions.
