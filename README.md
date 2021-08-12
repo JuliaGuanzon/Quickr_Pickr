@@ -21,9 +21,18 @@ Python
 
 ## Usage and Examples
 
-1. API Call-Alpaca
-2. Build indicators
-3. 
+
+## Tasks due Friday
+
+Sam - develop database, clean data, work on indicator calculations
+
+Saeed - develop database, clean data, work on indicator calculations
+
+Prateek - Clean up User Story, develop Acceptance Criteria, brainstorm on presentation, anything else 
+
+Julia - build questionary code, brainstorm on presentation
+
+
 indicators-ST:
 * Moving Averages
 * % float Short
