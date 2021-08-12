@@ -33,19 +33,16 @@ Prateek - Clean up User Story, develop Acceptance Criteria, brainstorm on presen
 Julia - build questionary code, brainstorm on presentation
 
 
-indicators-ST:
-* Moving Averages
-* % float Short
-* Average Volume
-* Relative Volume
-* Optionable
+Indicators:
 
-indicators-LT:
-* Price to Earning Ratio
-* Dividened %
-* Debt to Equity Ratio
-* Insider Ownership
-* Market Cap
+RSI : 30> signal that it will go up in short term, 70<signal running hot, will come down
+
+Moving Average 200 Days:
+
+Volume:
+
+Price:
+
 
 ---
 
