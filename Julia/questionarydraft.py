@@ -2,62 +2,95 @@
 """Quickr Pickr
 
 This is a command line application to help investors find the stocks to invest in. 
-This is a rough draft, until we know what our variables are then we can start to test.
-We will have to use utils and filters on separate files and pull them into this or our main file.
-Copied the format from a previous activity in Mod2.
 
-I will keep fiddling with the if-else statements. I am having a problem executing the questionary.select, but in the documentation for questionary it should work.
-
-Example:
-    $ python app.py
 """
-import sys
 import fire
 import questionary
 from pathlib import Path
 
 
+# from qualifier.utils.fileio import load_csv, save_csv
+
+# from qualifier.utils.calculators import (
+#     calculate_monthly_debt_ratio,
+#     calculate_loan_to_value_ratio,
+# )
+
+# from qualifier.filters.max_loan_size import filter_max_loan_size
+# from qualifier.filters.credit_score import filter_credit_score
+# from qualifier.filters.debt_to_income import filter_debt_to_income
+# from qualifier.filters.loan_to_value import filter_loan_to_value
+
 def get_user_information():
-    """Ask the user for their risk tolerance
+    """Ask the user a series of questions.
 
-    By asking how much risk they want to take on, we can build around the RSI and the moving avg data to make sure they get what they ask for. 
-
+    By asking these questions, we can build a list of stocks that match their criteria.
     """
-    risk_tolerance = questionary.select(
-        "How much risk are you willing to take on?"
+    #J.Guanzon Comment: RSI
+    rsi_indicator = questionary.select(
+        "Regarding relative strength index, what are you looking for?",
         choices = [
-            "I'm willing to take on a risk",
-            "I'm indifferent to risk",
-            "I'm risk adverse"
+            "I'm looking for an RSI of 51 or greater",
+            "I'm looking for an RSI of 50 or less"
         ]
     ).ask()
 
-    if risk_tolerance ==  "I'm willing to take on a risk":
-        rsi > 70
-        moving_avg_200days <0%
-    elif risk_tolerance == "I'm risk adverse":
-        rsi < 30
-        moving_avg_200days > 50%
-    else:
-        rsi 
-        moving_avg_200
-
-    print(f"You have have chosen {risk_tolerance} ")
+    if rsi_indicator == "I'm looking for an RSI of 51 or greater":
+        rsi_indicator = data["RSI"].apply(lambda x: x if x >= 51)
     
-#Not sure what to code for this just yet
-    stock_volume = questionary.select().ask()
+    else:
+        rsi_indicator = data["RSI"].apply(lambda x: x if x <= 50)
 
-#Not sure what to code for this just yet
-    stock_price = questionary.text(
-        "How much are you willing to pay for a stock"
+    #J.Guanzon Comment: Volume
+    volume_indicator = questionary.select(
+        "Are you intersted in stocks that have high or low volume?",
+        choices = [
+            "High Volume",
+            "Low Volume"
+        ]
     ).ask()
 
-    stock_price = float(stock_price)
+    if volume_indicator == "High Volume":
+        volume_indicator = data["Volume"].apply(lambda x: x if x >= 1001)
+    
+    else:
+        volume_indicator = data["Volume"].apply(lambda x: x if x <= 1000)
 
+    #J.Guanzon Comment: Price
+    price_indicator = questionary.select(
+        "How much are you willing to pay?",
+        choices = [
+            "I want to spend less than $100 on one stock",
+            "I want to spend less than $1000 on one stock",
+            "I do not have a limit"
+        ]
+    ).ask()
 
-    return risk_tolerance, stock_volume, stock_price
- 
-    # sectors = questionary.select(
+    if price_indicator == "I want to spend less than $1000 on one stock":
+        price_indicator = data["Price"].apply(lambda x: x if x <= 1000)
+    
+    elif price_indicator == "I want to spend less than $100 on one stock":
+        price_indicator = data["Price"].apply(lambda x: x if x <= 100)
+
+    else:
+        price_indicator = data["Price"].apply(lambda x: x if x)
+
+    # J.Guanzon Comment: Moving Average
+    # moving_avg_indicator = questionary.select(
+    #     "How much historical data would you like to base your information off of?",
+    #     choices = [
+    #         "One year",
+    #         "One month"
+    #     ]
+    # ).ask()
+
+    # if moving_avg_indicator == "I want to spend less than $1000 on one stock":
+    #     moving_avg_indicator = data["Moving Average"].apply(lambda x: x if x = 12mo)
+
+    # else:
+    #     moving_avg_indicator = data["Moving Average"].apply(lambda x: x if x <= 1mo)
+
+    # sector_indicator = questionary.select(
     #     "What type of sector are you interested in investing in?",
     #     choices = [
     #         "Information Technology",
@@ -73,7 +106,11 @@ def get_user_information():
     #         "Real Estate"]
     # ).ask()
 
-def find_qualifying_stocks(risk_tolerance, stock_volume, stock_price):
+    return rsi_indicator, volume_indicator, price_indicator
+ 
+
+
+def find_qualifying_stocks(stock_data, rsi_indicator, volume_indicator, price_indicator):
     """Determine which stocks will appeal to the user.
 
     Stock qualification criteria is based on:
@@ -95,10 +132,10 @@ def find_qualifying_stocks(risk_tolerance, stock_volume, stock_price):
     """
 
  
-    stock_data_filtered = filter_rsi(risk_tolerance, X)
-    stock_data_filtered = filter_moving_avg_200days(risk_tolerance, X)
-    stock_data_filtered = filter_volume(stock_volume, X)
-    stock_data_filtered = filter_price(stock_price, X)
+    stock_data_filtered = filter_rsi(rsi_indicator, stock_data)
+    # stock_data_filtered = filter_moving_avg_200days(risk_tolerance, X)
+    stock_data_filtered = filter_volume(volume_indicator, stock_data_filtered)
+    stock_data_filtered = filter_price(price_indicator, stock_data_filtered)
 
     print(f"Found {len(stock_data_filtered)} qualifying stocks")
 
@@ -114,11 +151,11 @@ def run():
     stock_data = load_stock_data()
 
     # Get the applicant's information
-    risk_tolerance, stock_volume, stock_price = get_user_information()
+    rsi_indicator, volume_indicator, price_indicator = get_user_information()
 
     # Find qualifying loans
     qualifying_stocks= find_qualifying_stocks(
-        stock_data, risk_tolerance, stock_volume, stock_price
+        stock_data, rsi_indicator, volume_indicator, price_indicator
     )
 
     # Save qualifying loans
@@ -139,3 +176,5 @@ def run():
     save_csv(csvpath, qualifying_stocks, header)
     print (f"The file is located here: {csvpath}.")
    
+if __name__ == "__main__":
+    fire.Fire(run)

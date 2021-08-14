@@ -20,19 +20,19 @@ else:
 # x if x <= 50
 
 
-# volume_indicator = questionary.select(
-#         "Are you intersted in stocks that have high or low volume?",
-#         choices = [
-#             "High Volume",
-#             "Low Volume"
-#         ]
-#     ).ask()
+volume_indicator = questionary.select(
+        "Are you intersted in stocks that have high or low volume?",
+        choices = [
+            "High Volume",
+            "Low Volume"
+        ]
+    ).ask()
 
-# price_indicator = questionary.select(
-#         "How much are you willing to pay?",
-#         choices = [
-#             "I want to spend less than $100 on one stock",
-#             "I want to spend less than $1000 on one stock",
-#             "I do not have a limit"
-#         ]
-#     ).ask()
+price_indicator = questionary.select(
+        "How much are you willing to pay?",
+        choices = [
+            "I want to spend less than $100 on one stock",
+            "I want to spend less than $1000 on one stock",
+            "I do not have a limit"
+        ]
+    ).ask()
