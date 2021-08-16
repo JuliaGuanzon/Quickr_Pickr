@@ -9,7 +9,8 @@ import questionary
 from pathlib import Path
 
 
-# from qualifier.utils.fileio import load_csv, save_csv
+from utils.fileio import save_csv
+# load_csv,
 
 # from qualifier.utils.calculators import (
 #     calculate_monthly_debt_ratio,
@@ -20,6 +21,22 @@ from pathlib import Path
 # from qualifier.filters.credit_score import filter_credit_score
 # from qualifier.filters.debt_to_income import filter_debt_to_income
 # from qualifier.filters.loan_to_value import filter_loan_to_value
+
+
+# def load_bank_data():
+#     """Ask for the file path to the latest banking data and load the CSV file.
+
+#     Returns:
+#         The bank data from the data rate sheet CSV file.
+#     """
+
+#     csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
+#     csvpath = Path(csvpath)
+#     if not csvpath.exists():
+#         sys.exit(f"Oops! Can't find this path: {csvpath}")
+
+#     return load_csv(csvpath)
+
 
 def get_user_information():
     """Ask the user a series of questions.
