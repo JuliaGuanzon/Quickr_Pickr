@@ -17,34 +17,110 @@ Our goal is to give the user an efficient and informative experience. Investing 
 </details>
 
 
-**Ultimately, Quickr Pickr wants YOU to get richer quickr.**
+<h3 align="center"> Ultimately, Quickr Pickr wants YOU to get richer quickr. </h3>
 
 ---
- 
- 
+  
 ## Technologies
+This application was created using JupyterLab and VS Code, as the main language used was Pandas/Python. To be able to run this program, this must be ran using a Git Bash terminal, or VS code. 
 
-Conda
-Python
-Pandas
-JupyterLab
-Yahoo Finance
-Numpy
-Matplotlib
+**Systems**
 
+[conda 4.10.3](https://docs.anaconda.com/anaconda/install/index.html) - Package manager, Environment Manager
+
+Python 3.7 - included in Anaconda
+
+[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) - Web-based user interface
+
+[Pandas](https://pandas.pydata.org/) - Open source data analysis and manipulation tool
+
+**Packages**
+
+[Yahoo! Finance](https://pypi.org/project/yfinance/) - Provides historical market data from Yahoo! finance
+
+[Numpy](https://numpy.org/doc/stable/) - Python library that provides multidimensional array objects, derived objects, and routines for faster operations
+
+[Matplotlib](https://matplotlib.org/stable/users/installing.html) - 
+
+[fire](https://github.com/google/python-fire) - Command line interface, help page, and entry-point
+
+[questionary](https://github.com/tmbo/questionary) - Interactive user prompts and dialogs
 
 ---
 
 ## Installation Guide
+ 
+<details>
+<summary>Installation for Development</summary>
+
+Below are installations for the development side of the project. If you wish to understand the code behind the application, please install the following. 
+
+```JupyterLab
+conda active dev
+python -m ipykernel install --user --name dev
+conda install -c conda-forge nodejs
+conda deactivate
+
+```
+Once installed you should be able to open JupyterLab by the following code:
+
+```
+conda activate dev
+jupyter lab
+```
+
+To exit out of JupyterLab hit: Ctrl + C
+
+It is important to also instal Pandas as the majority of code use is using language from Pandas.
+
+```Pandas
+conda activate dev
+conda install pandas -y
+conda deactive
+```   
+
+</details>
+
+<details>
+<summary>Installations Needed to Run Application</summary>
+
 Yahoo Finance
+
+```
+ pip install yfinance --upgrade --no-cache-dir
+```
+
 Numpy
+
+```
+pip install numpy
+```
+
+
 Matplotlib
+    
+```
+conda install matplotlib
+```
 
 
+Fire
+    
+```
+  pip install fire
+```
+
+Questionary
+    
+```
+  pip install questionary
+```
+
+</details>
 
 ---
 
-## Usage and Examples
+## Usage 
 
 
 To engage the users, we wanted them to be able to select from a group of indicators that we believe will give the user the most informative decision tools.
@@ -60,6 +136,11 @@ Trading Volume: Measures the number of shares traded in a stock. Looking at volu
  Price:
  
 </details>
+
+---
+
+## Examples
+
 
 
 ---
