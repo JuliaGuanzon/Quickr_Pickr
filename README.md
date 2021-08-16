@@ -40,7 +40,7 @@ Python 3.7 - included in Anaconda
 
 [Numpy](https://numpy.org/doc/stable/) - Python library that provides multidimensional array objects, derived objects, and routines for faster operations
 
-[Matplotlib](https://matplotlib.org/stable/users/installing.html) - 
+[Matplotlib](https://matplotlib.org/stable/users/installing.html) - Python library that provides static, animated, and interactived visualizations
 
 [fire](https://github.com/google/python-fire) - Command line interface, help page, and entry-point
 
