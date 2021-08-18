@@ -7,12 +7,13 @@
 # http://theautomatic.net/yahoo_fin-documentation/
 # pip install yahoo-fin
 import yahoo_fin.stock_info as si
+import yfinance as yf
 
 # other libraries
 import pandas as pd
 
 
-# In[3]:
+# In[2]:
 
 
 def get_tickers(index):
@@ -24,7 +25,7 @@ def get_tickers(index):
         return si.tickers_nasdaq()
 
 
-# In[4]:
+# In[3]:
 
 
 def create_dataframe(old_df, new_df):
@@ -33,8 +34,10 @@ def create_dataframe(old_df, new_df):
     return new_df
 
 
-# In[ ]:
+# In[4]:
 
 
-
+def get_yf_data(alltickers, period_param, gp_param):
+    result = yf.download((alltickers), period=period_param, group_by= gp_param)
+    return result
 
