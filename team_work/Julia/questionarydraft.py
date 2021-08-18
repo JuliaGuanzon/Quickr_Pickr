@@ -179,7 +179,7 @@ def run():
     save_stock_picks(qualifying_stocks)
 
 
- def save_stock_picks(qualifying_stocks):
+def save_stock_picks(qualifying_stocks):
     """Saves the qualifying stocks to a CSV file.
 
     Args:
