@@ -125,17 +125,41 @@ Questionary
 
 To engage the users, we wanted them to be able to select from a group of indicators that we believe will give the user the most informative decision tools.
 
+**Indicators**
 <details>
-<summary>Indicators</summary>
-RSI: a momentum indicator used to measure the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of stock or other asset. RSI values of 70 or over indicate that security is becoming overbought or overvalued and may be primed for a trend reversal. RSI value of 30 or below indicates an oversold or undervalued condition. 
- 
-Moving Avg (200 days): Moving average is a calculation used to analyze data points by creating a series of averages of different subsets of the full data set.  MA smooths out the price data by creating a constantly updated average price. Calculated to identify the trend direction of a stock or to determine its support and resistance levels. 
- 
-Trading Volume: Measures the number of shares traded in a stock. Looking at volume patterns over time can help get a sense of strength behind advances and declines in specific stocks and entire markets.
- 
- Price:
- 
+<summary> Relative Strength Index </summary>
+Relative Strength Index (RSI) is a momentum indicator used to measure the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of stock or other asset. 
+
+* High RSI values of 70 or over indicate that stock is becoming overbought or overvalued and may be primed for a trend reversal. 
+* Low RSI value of 30 or below indicates an oversold or undervalued condition. 
+
+[More Information on RSI](https://www.investopedia.com/terms/r/rsi.asp)
 </details>
+
+<details>
+<summary> Simple Moving Average (50%) </summary>
+Simple Moving Average (SMA) is a technical indicator that aids in determining if a stock is in a uptrend or downtrend. To calculate this, we take the average of a range of closing prices divided by the amount of periods in that range.
+
+Our SMA50% is a 50-day moving average is calculuated by summing up the past 50 data points and then dividing the result by 50.
+* High SMA50% values indicate an uptrend for the stock. 
+* Low SMA50% value indicates a downtrend for the stock. 
+    
+[More Information on SMA](https://www.investopedia.com/terms/s/sma.asp)
+    
+[More Information on SMA50%](https://www.investopedia.com/ask/answers/012815/why-50-simple-moving-average-sma-so-common-traders-and-analysts.asp)
+</details>
+
+<details>
+<summary> Moving Average Convergence Divergence </summary>
+Moving Average Convergence Divergence(MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a stock's price. This is calculated by subtracting the 26-period exponential moving average from the 12-period exponential moving average. Exponential Moving Average (EMA) is a type of moving average that places greater weight on recent prices compared to SMA that weighs all periods equally.
+
+* High MACD indicates that it has crossed or is greater than the signal line, meaning it is a great time to buy the stock. 
+* Low MACD indicates that it has crossed or it is below the signal line, meaning it is time to sell the stock.
+    
+[More Information on MACD](https://www.investopedia.com/terms/m/macd.asp)
+    
+</details>
+
 
 ---
 
