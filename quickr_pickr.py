@@ -8,34 +8,9 @@ import fire
 import questionary
 from pathlib import Path
 
-from utils.financial_functions import calc_indicators
+from utils.financial_functions import get_ticks, get_dates, todays_indicators, calc_indicators
 from utils.fileio import save_csv
-# load_csv,
 
-# from qualifier.utils.calculators import (
-#     calculate_monthly_debt_ratio,
-#     calculate_loan_to_value_ratio,
-# )s
-
-# from qualifier.filters.max_loan_size import filter_max_loan_size
-# from qualifier.filters.credit_score import filter_credit_score
-# from qualifier.filters.debt_to_income import filter_debt_to_income
-# from qualifier.filters.loan_to_value import filter_loan_to_value
-
-
-# def load_bank_data():
-#     """Ask for the file path to the latest banking data and load the CSV file.
-
-#     Returns:
-#         The bank data from the data rate sheet CSV file.
-#     """
-
-#     csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
-#     csvpath = Path(csvpath)
-#     if not csvpath.exists():
-#         sys.exit(f"Oops! Can't find this path: {csvpath}")
-
-#     return load_csv(csvpath)
 
 
 def get_user_information():
@@ -43,35 +18,34 @@ def get_user_information():
 
     By asking these questions, we can build a list of stocks that match their criteria.
     """
-    #J.Guanzon Comment: RSI
-    rsi_indicator = questionary.select(
-        "Regarding relative strength index, what are you looking for?",
+    #J.Guanzon Comment: The questionary below will great the user and ask if they would like to use the program.
+    # If they choose yes, the program will run the tickers and the start/end dates. If they choose no, they will be exited out the program.
+    starter_question = questionary.select(
+        "Welcome! Are you ready to use Quickr Pickr?",
         choices = [
-            "I'm looking for an RSI of 51 or greater",
-            "I'm looking for an RSI of 50 or less"
+            "YES",
+            "NO"
         ]
     ).ask()
 
-    if rsi_indicator == "I'm looking for an RSI of 51 or greater":
-        rsi_indicator = data["RSI"].apply(lambda x: x if x >= 51)
-    
+    if starter_question == "YES":
+        return get_ticks, get_dates
     else:
-        rsi_indicator = data["RSI"].apply(lambda x: x if x <= 50)
+        print(f"Goodbye!")
 
-    #J.Guanzon Comment: Volume
-    sma50_indicator = questionary.select(
-        "Are you intersted in stocks that have high or low volume?",
+    #J.Guanzon Comment: Next questionary will ask if the user would like to download the most recent momentum data.
+    # If they choose yes, the program will run functions to gather the data. If no, they will be prompted to the next question.
+    recent_momentum_data = questionary.select(
+        "Would you like to download our most recent momentum data? This may take a few minutes to download.",
         choices = [
-            "High Volume",
-            "Low Volume"
+            "YES",
+            "NO"
         ]
     ).ask()
 
-    if sma50_indicator == "High Volume":
-        sma50_indicator = data["Volume"].apply(lambda x: x if x >= 1001)
+    if recent_momentum_data == "YES":
+        return todays_indicators
     
-    else:
-        sma50_indicator = data["Volume"].apply(lambda x: x if x <= 1000)
 
     #J.Guanzon Comment: Price
     macd_indicator = questionary.select(
@@ -89,36 +63,6 @@ def get_user_information():
     else:
         macd_indicator = data["Price"].apply(lambda x: x if x)
 
-    # J.Guanzon Comment: Moving Average
-    # moving_avg_indicator = questionary.select(
-    #     "How much historical data would you like to base your information off of?",
-    #     choices = [
-    #         "One year",
-    #         "One month"
-    #     ]
-    # ).ask()
-
-    # if moving_avg_indicator == "I want to spend less than $1000 on one stock":
-    #     moving_avg_indicator = data["Moving Average"].apply(lambda x: x if x = 12mo)
-
-    # else:
-    #     moving_avg_indicator = data["Moving Average"].apply(lambda x: x if x <= 1mo)
-
-    # sector_indicator = questionary.select(
-    #     "What type of sector are you interested in investing in?",
-    #     choices = [
-    #         "Information Technology",
-    #         "Energy",
-    #         "Materials",
-    #         "Industrials",
-    #         "Utilities",
-    #         "Healthcare",
-    #         "Financials",
-    #         "Consumer Discretionary",
-    #         "Consumer Staples",
-    #         "Communication Services",
-    #         "Real Estate"]
-    # ).ask()
 
     return rsi_indicator, sma50_indicator, macd_indicator
  
