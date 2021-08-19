@@ -114,7 +114,7 @@ def run():
 
     # Check to see if the user would like a chart or more info on a specific stock.
     result = chart_or_info_q()
-    print(result)
+    print(result) # SW: change to pretty print if dtype isnt none
 
 
 if __name__ == "__main__":
