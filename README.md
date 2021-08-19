@@ -161,6 +161,12 @@ Moving Average Convergence Divergence(MACD) is a trend-following momentum indica
 </details>
 
 
+<details>
+<summary> Moving Average Convergence Divergence-Low Divergence </summary>
+Moving Average Convergence Divergence(MACD) with low divergence tells us the the MACD and signal line are close and indicate a cross will be happening soon.
+    
+</details>
+
 ---
 
 ## Examples
