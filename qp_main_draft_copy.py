@@ -109,7 +109,18 @@ def chart_or_info_q():
         return info
     
     else:
-        sys.exit(f"Goodbye!")
+        last_chance = questionary.select(
+            "Are you sure you want to exit the application?",
+            choices= [
+                "YES",
+                "NO"
+            ]
+        ).ask()
+        if last_chance == "YES":
+            sys.exit(f"Thank you for using Quickr Pickr! See you soon!")
+        else:
+            return chart_or_info_q()
+            
 
 
 def run():
