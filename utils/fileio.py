@@ -22,8 +22,7 @@ import csv
 #             data.append(row)
 #     return data
 
-def save_csv(csvpath, data, header):
-    header = ["Ticker", "Open", "High", "Low", "Close", "Adj Cose","Volume", "Moving Avg 200 Days","Price Change","Gains","Avg UP"]
+def save_csv(csvpath,result):
     """ J.Guanzon Comment-
     Saves the CSV file from path provided.
 
@@ -38,5 +37,4 @@ def save_csv(csvpath, data, header):
     """
     with open(csvpath, "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',')
-        csvwriter.writerow(header)
-        csvwriter.writerows(data)
+        csvwriter.writerows(result)
