@@ -26,7 +26,7 @@ def get_info(ticker):
 # All Short-Term indicators calculated in one function
 def calc_indicators (ticker):
 # Downloads the data for each stock
-    data = yf.download(ticker, start=start_date,end=end_date)
+    data = yf.download(ticker, period="6mo")
     data["Ticker"] = ticker
 # Gets the moving average over the last 12 and 26 days
     data["MA12"] = data.Close.ewm(span=12).mean()
@@ -60,7 +60,7 @@ def get_chart(ticker):
     ax1 = plt.subplot2grid((8,1), (0,0), rowspan = 5, colspan = 1)
     ax2 = plt.subplot2grid((7,1), (5,0), rowspan = 3, colspan = 1)
 
-    ax1.plot(df.Close)
+    ax1.plot(df.Close) #SW: Maybe add SMA50, also figure out y labels
     ax2.plot(df.MACD, color = 'black', linewidth = 1.5, label = 'MACD')
     ax2.plot(df.Signal, color = 'violet', linewidth = 1.5, label = 'SIGNAL')
 # Plots the bar graph on within the second plot, showing different colors for positive and negative values
@@ -71,38 +71,43 @@ def get_chart(ticker):
             ax2.bar(df.Close.index[i], df.HIST[i], color = 'green')
 
     plt.legend(loc = 'lower right')
-
+    plt.title(f"{ticker} Price and MACD, Last 6 Months")
+    return plt.show()
 
 # %%
 # Uses calc_indicators to get Today's Values for S&P 500
-def todays_indicators():
+def todays_indicators(stock_list):
 # Create Empty lists our desired values will end up in
     stock_tick_list = []
+    price_list = []
     stock_rsi_list = []
-    macd_list = []
-    sig_list = []
+    # macd_list = []
+    # sig_list = []
     hist_list = []
     sma_pct = []
 # Add a count so the user can know how far along they are   
     count = 0
 # Iterate through the S&P 500, appending each list with the appropriate value for the most recent close
-    for stock in sp500_tickers:
+    for stock in stock_list:
         stock_indicators = calc_indicators(stock)
         today = stock_indicators.iloc[-1]
         stock_tick_list.append(today["Ticker"])
+        price_list.append(today["Close"])
         stock_rsi_list.append(today["RSI"])
-        macd_list.append(today["MACD"])
-        sig_list.append(today["Signal"])
+        # macd_list.append(today["MACD"])
+        # sig_list.append(today["Signal"])
         hist_list.append(today["HIST"])
         sma_pct.append(today["SMA50%"])
         count+=1
         print(count)
-    frames = {"RSI" : stock_rsi_list,
-             "MACD": macd_list,
-             "Signal": sig_list,
+    frames = {"Price" : price_list,
+            "RSI" : stock_rsi_list,
+            #  "MACD": macd_list,
+            #  "Signal": sig_list,
              "HIST" : hist_list,
              "SMA50%": sma_pct}
     today_df = pd.DataFrame(data=frames, index=stock_tick_list)
+    today_df = today_df.rename(columns={"HIST" : "MACD_Strength"})
     
     return today_df
 
@@ -115,15 +120,15 @@ def sort_indicators(today_df, indicator):
     elif indicator == "Low RSI":
         today_df.sort_values(by=["RSI"], ascending=True,inplace=True)
     elif indicator == "High MACD":
-        today_df.sort_values(by=["HIST"], ascending=False, inplace=True)
+        today_df.sort_values(by=["MACD_Strength"], ascending=False, inplace=True)
     elif indicator == "Low MACD":
-        today_df.sort_values(by=["HIST"], ascending=True, inplace=True)
+        today_df.sort_values(by=["MACD_Strength"], ascending=True, inplace=True)
     elif indicator == "High SMA50%":
         today_df.sort_values(by=["SMA50%"], ascending=False, inplace=True)
     elif indicator == "Low SMA50%":
         today_df.sort_values(by=["SMA50%"], ascending=True, inplace=True)
     elif indicator == "Low MACD Divergence":
-        divergence = [abs(i) for (i) in hist_list]
+        divergence = [abs(i) for (i) in today_df.MACD_Strength]
         today_df["Divergence"] = divergence
         today_df.sort_values(by=["Divergence"], ascending=True, inplace=True)
         
