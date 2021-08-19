@@ -4,10 +4,10 @@
 # In[1]:
 
 
-# test function call from one file to a file in another folder
+# test function call
 
-def display_message(name):
-    print(name + "... a successful call to this function was made from another file")
+def display_greeting(name):
+    print("... hello from " + name)
 
 
 # In[ ]:
