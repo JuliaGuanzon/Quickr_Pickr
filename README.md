@@ -122,7 +122,7 @@ Questionary
 
 ## Usage 
 
-To use the Quickr Pickr application, the repository will need to be cloned from GitHub and into a local repository. The application only works in the GitBash terminal. The usage of a dev environment is imperative as the user will need install all of the systems and packages above in order to run the applicaiton.
+To use the Quickr Pickr application, the repository will need to be cloned from GitHub and into a local repository. The application only works in the GitBash terminal. The usage of a dev environment is imperative as the user will need to install all of the systems and packages above in order to run the applicaiton.
 
 Open the GitBash terminal and activate your dev environment by commanding:
 
@@ -143,9 +143,9 @@ In order to make this application work we had to import the following:
 
 The above imports consist of libraries that assist us with the analytics and function files that import the calculations we need for the indicators.
 
-The usage of questionary to build the intake form was essential to the structure of the application as we wanted to make this a seamless application that was quick to move through. By engaging the users through a questionaire, we wanted them to be able to select from short-term or longterm indicators that Quickr Pickr believes will give the user the most gains.
+The usage of questionary to build the intake form was essential to the structure of the application as we wanted to make this a seamless application that was quick to move through and as simple as a click of a button. By engaging the users through a questionaire, we wanted them to be able to select from short-term or longterm indicators that Quickr Pickr believes will give the user the most gains.
 
-Only one indicator can be chosen when running this application. The user can choose from the following in the drop down menus:
+Only one indicator can be chosen at a time when running this application. The user can choose from the following in the drop down menus:
 
 **Short Term Indicators**
 <details>
@@ -228,29 +228,36 @@ After answering the criteria questions, the application provides the user with t
 ---
 
 ## Examples
-
-The user will code the following below as seen in the image to access the application.
+ 
+To use the application, the user will code the following, as seen in the image below, to access the application.
 ![image](https://user-images.githubusercontent.com/84649228/130187777-a82b9801-a363-4347-8452-a9251ead1592.png)
 
-The application welcomes the user and asks if they are ready to use the application.
+Quickr Picker welcomes the user and asks if they are ready to use the application. They can select 'YES' or 'NO'. If 'YES', the user will be given a next set of questions. If the user selects "NO" they will be exited from the application.
 ![image](https://user-images.githubusercontent.com/84649228/130187871-4d050af0-2291-4c1c-867d-4d486885d5fc.png)
 
-The user will select from short-term or long-term indicators.
+Next, the user will select from short-term or long-term indicators.
 ![image](https://user-images.githubusercontent.com/84649228/130187941-77a0468e-ff0f-4648-a228-e914bc1cf908.png)
 
-The application will run the calcualtion of the indicators in the background and the user is able to call the indicator to sort the values.
+The application will run the calcualtion of the indicators in the background and the user will be able to call one indicator to sort the stocks. The user is then provided with a list of information needed to make decisions on what stocks to invest in.
 ![image](https://user-images.githubusercontent.com/84649228/130188715-63adbc9d-5d4a-4457-9f5c-f22a694129a2.png)
 
-The user can chose to create a chart or to just be provided with the stock information
+The application sorts the stocks by the indicator to provide the best stock possible to the user.
+![image](https://user-images.githubusercontent.com/84649228/130283908-561167cb-06d0-4d96-ab77-03067905b04e.png)
+
+Once the user gathers information on the sorted stocks, the user had the option to create a chart or to just be provided with one stock's information. Please note that the chart only presents graphs on price and the MACD. If the user choses information, they will be provided with entire financial summary of the stock company.
 ![image](https://user-images.githubusercontent.com/84649228/130188980-ff4a4421-e57a-4259-a909-7b74f2b1bac6.png)
 
-The user must select a stock from the S&P 500
+The user will be asked to choose a stock to look into, and it must be a stock from the S&P 500. If they choose a stock outside of the S&P 500, they will be asked again to pick a stock form the S&P 500.
 ![image](https://user-images.githubusercontent.com/84649228/130189074-933a63ce-08f0-4104-bd6f-d087024e60f7.png)
 
-The user is provided a chart of which they are able to save.
+If a chart is chosen, the user is provided a chart of which they are able to save.
 ![image](https://user-images.githubusercontent.com/84649228/130189113-b5f6db02-9bd1-4375-bfd0-ea97203b0c8b.png)
 
-Below is an example of the entire application ran in a terminal. 
+If information is chosen, the user will be provided with rows of data. The picture below is a snip-it of only a portion of the information provided.
+
+![image](https://user-images.githubusercontent.com/84649228/130283473-ace8455c-19b5-4032-8f26-0241c77c9855.png)
+
+When the user is done with using the application, the system will exit the user out of the application. Below is an example of the entire application ran in a terminal. 
 ![image](https://user-images.githubusercontent.com/84649228/130189144-08b7b8cd-2a13-468e-ad50-1d7b001888e3.png)
 
 ---
