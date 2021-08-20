@@ -14,12 +14,13 @@ import numpy as np
 from pathlib import Path
 from termcolor import colored as cl
 import matplotlib.pyplot as plt
+import pprint
 
 
 plt.rcParams['figure.figsize'] = (20, 10)
 plt.style.use('fivethirtyeight')
 from pathlib import Path
-
+pp = pprint.PrettyPrinter(indent=4)
 # from utils.financial_functions import *
 from utils.sr_financial_functions import *
 from utils.fileio import save_csv
@@ -167,7 +168,7 @@ def run():
 
     # Check to see if the user would like a chart or more info on a specific stock.
     result = chart_or_info_q(sp500_ticks)
-    print(result)
+    pp.pprint(result)
 
     save_stock_picks(result)
 
