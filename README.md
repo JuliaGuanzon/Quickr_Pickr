@@ -122,10 +122,32 @@ Questionary
 
 ## Usage 
 
+To use the Quickr Pickr application, the repository will need to be cloned from GitHub and into a local repository. The application only works in the GitBash terminal. The usage of a dev environment is imperative as the user will need to install all of the systems and packages above in order to run the applicaiton.
 
-To engage the users, we wanted them to be able to select from a group of indicators that we believe will give the user the most informative decision tools.
+Open the GitBash terminal and activate your dev environment by commanding:
 
-**Indicators**
+```
+conda activate dev
+```
+Open and run the 'quickr_pickr.py' file by commanding:
+
+```
+python quickr_pickr.py
+```
+This will activate the application for the user to start finding stocks.
+
+
+In order to make this application work we had to import the following:
+
+![image](https://user-images.githubusercontent.com/84649228/130191404-8eb54803-49e2-4c08-bf03-278004f0e6e6.png)
+
+The above imports consist of libraries that assist us with the analytics and function files that import the calculations we need for the indicators.
+
+The usage of questionary to build the intake form was essential to the structure of the application as we wanted to make this a seamless application that was quick to move through and as simple as a click of a button. By engaging the users through a questionaire, we wanted them to be able to select from short-term or longterm indicators that Quickr Pickr believes will give the user the most gains.
+
+Only one indicator can be chosen at a time when running this application. The user can choose from the following in the drop down menus:
+
+**Short Term Indicators**
 <details>
 <summary> Relative Strength Index </summary>
 Relative Strength Index (RSI) is a momentum indicator used to measure the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of stock or other asset. 
@@ -140,7 +162,7 @@ Relative Strength Index (RSI) is a momentum indicator used to measure the magnit
 <summary> Simple Moving Average (50%) </summary>
 Simple Moving Average (SMA) is a technical indicator that aids in determining if a stock is in a uptrend or downtrend. To calculate this, we take the average of a range of closing prices divided by the amount of periods in that range.
 
-Our SMA50% is a 50-day moving average is calculuated by summing up the past 50 data points and then dividing the result by 50.
+Our SMA50% is the percent that a stock is above or below its 50 day simple moving average
 * High SMA50% values indicate an uptrend for the stock. 
 * Low SMA50% value indicates a downtrend for the stock. 
     
@@ -160,18 +182,83 @@ Moving Average Convergence Divergence(MACD) is a trend-following momentum indica
     
 </details>
 
-
 <details>
 <summary> Moving Average Convergence Divergence-Low Divergence </summary>
 Moving Average Convergence Divergence(MACD) with low divergence tells us the the MACD and signal line are close and indicate a cross will be happening soon.
     
 </details>
 
+**Long Term Indicators**
+<details>
+<summary> Total Debt </summary>
+Total debt is the amount of debt a stock company possess.  
+    
+* High Total Debt is very risky.
+* Low Total Debt is not risky.
+
+</details>
+
+<details>
+<summary> Debt to Equity </summary>
+Debt to Equity is reflected by the stock company's total liabilities and shareholder equities. It reflects the ability of shareholder equity to cover all outstanding debts in the event of the businesses downturn.
+    
+* High Debt to Equity ratio indicates that the stock has a heightened risk.
+* Low Debt to Equity indicates the stock has less risk associated with it.
+ 
+[More information on Debt to Equity](https://www.investopedia.com/terms/d/debtequityratio.asp)
+</details>
+
+<details>
+<summary> Market Capitalization </summary>
+Market Capitalization (Market Cap) refers to how much a company is worth as determined by the stock market. It is the total market value of all outstanding shares.
+    
+[More information on Market Capitalization](https://www.investopedia.com/terms/m/marketcapitalization.asp)
+    
+</details>
+
+<details>
+<summary> Forward P/E </summary>
+Forward Price Earnings is a ratio of price-to-earnings using forecasted earnings for the P/E calculation. 
+    
+[More information on Forward P/E](https://www.investopedia.com/terms/f/forwardpe.asp)    
+</details>
+
+After answering the criteria questions, the application provides the user with the ability to print a chart, gather more information about the stock, or neither. Once the user has chosen what type of information they need, the application will exit the user. The user is more than welcome to run different indicators, but they will have to reopen the application and start over.
+
 ---
 
 ## Examples
+ 
+To use the application, the user will code the following, as seen in the image below, to access the application.
+![image](https://user-images.githubusercontent.com/84649228/130187777-a82b9801-a363-4347-8452-a9251ead1592.png)
 
+Quickr Picker welcomes the user and asks if they are ready to use the application. They can select 'YES' or 'NO'. If 'YES', the user will be given a next set of questions. If the user selects "NO" they will be exited from the application.
+![image](https://user-images.githubusercontent.com/84649228/130187871-4d050af0-2291-4c1c-867d-4d486885d5fc.png)
 
+Next, the user will select from short-term or long-term indicators.
+![image](https://user-images.githubusercontent.com/84649228/130187941-77a0468e-ff0f-4648-a228-e914bc1cf908.png)
+
+The application will run the calcualtion of the indicators in the background and the user will be able to call one indicator to sort the stocks. The user is then provided with a list of information needed to make decisions on what stocks to invest in.
+![image](https://user-images.githubusercontent.com/84649228/130188715-63adbc9d-5d4a-4457-9f5c-f22a694129a2.png)
+
+The application sorts the stocks by the indicator to provide the best stock possible to the user.
+![image](https://user-images.githubusercontent.com/84649228/130283908-561167cb-06d0-4d96-ab77-03067905b04e.png)
+
+Once the user gathers information on the sorted stocks, the user had the option to create a chart or to just be provided with one stock's information. Please note that the chart only presents graphs on price and the MACD. If the user choses information, they will be provided with entire financial summary of the stock company.
+![image](https://user-images.githubusercontent.com/84649228/130188980-ff4a4421-e57a-4259-a909-7b74f2b1bac6.png)
+
+The user will be asked to choose a stock to look into, and it must be a stock from the S&P 500. If they choose a stock outside of the S&P 500, they will be asked again to pick a stock form the S&P 500.
+![image](https://user-images.githubusercontent.com/84649228/130189074-933a63ce-08f0-4104-bd6f-d087024e60f7.png)
+
+If a chart is chosen, the user is provided a chart of which they are able to save.
+![image](https://user-images.githubusercontent.com/84649228/130189113-b5f6db02-9bd1-4375-bfd0-ea97203b0c8b.png)
+
+If information is chosen, the user will be provided with rows of data. The picture below is a snip-it of only a portion of the information provided.
+
+![image](https://user-images.githubusercontent.com/84649228/130283473-ace8455c-19b5-4032-8f26-0241c77c9855.png)
+
+When the user is done with using the application, the system will exit the user out of the application. Below is an example of the entire application ran in a terminal. 
+![image](https://user-images.githubusercontent.com/84649228/130189144-08b7b8cd-2a13-468e-ad50-1d7b001888e3.png)
 
 ---
 
