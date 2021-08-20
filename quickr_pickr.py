@@ -102,7 +102,7 @@ def chart_or_info_q(ticker_list):
         ]
     ).ask()
     if answer == "Chart":
-        ticker = questionary.text("Please input the ticker you'd like to see a chart of").ask()
+        ticker = questionary.text("Please input the ticker you'd like to see a chart of").ask().upper()
         # Saeed: Adding ERROR checking
         if ticker in  ticker_list:
             chart = get_chart(ticker)
@@ -111,7 +111,7 @@ def chart_or_info_q(ticker_list):
             print("The ticker you entered namely '" + ticker + "' is not in the SP500.")
             return chart_or_info_q(ticker_list)
     elif answer == "Info":
-        ticker = questionary.text("Please input the ticker you'd like to see a more info on").ask()
+        ticker = questionary.text("Please input the ticker you'd like to see a more info on").ask().upper()
         # Saeed: Adding ERROR checking
         if ticker in  ticker_list:
             info = get_info(ticker)
@@ -170,7 +170,9 @@ def run():
     result = chart_or_info_q(sp500_ticks)
     pp.pprint(result)
 
-    save_stock_picks(result)
+    sys.exit(f"Thank you for using Quickr Pickr! See you soon!")
+
+    # save_stock_picks(result)
 
 if __name__ == "__main__":
     fire.Fire(run)
