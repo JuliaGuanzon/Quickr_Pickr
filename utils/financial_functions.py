@@ -144,6 +144,51 @@ def get_ticks():
     
     return sp500_tickers
 
+def get_longterm(stock_list):
+    tick_list = []
+    forwardPE = []
+    dept_to_equity = []
+    total_debt = []
+    market_cap = []
+    price_list = []
+    count = 0
+    for ticker in stock_list:
+        info_all = yf.Ticker(ticker).info  
+        info_all["Ticker"] = ticker
+        forwardPE.append(info_all["forwardPE"])
+        tick_list.append(info_all["Ticker"])
+        dept_to_equity.append(info_all['debtToEquity'])
+        total_debt.append(info_all['totalDebt'])
+        market_cap.append(info_all['marketCap'])
+        price_list.append(info_all["currentPrice"])
+        count+=1
+        print(count)
+    frames = {"Price" : price_list,
+    "Total Debt" : total_debt,
+    "Debt to Equity" : dept_to_equity,
+    "Market Cap" : market_cap,
+    "Forward P/E" : forwardPE}
+    long_df = pd.DataFrame(data=frames, index=tick_list)
+    long_df.sort_values(by="Forward P/E", ascending=False, inplace=True)
+    
+    return long_df
+
+def sort_longterm(today_df, indicator):
+    if indicator == "High Total Debt":
+        today_df.sort_values(by=["Total Debt"], ascending=False,inplace=True)
+    elif indicator == "Low Total Debt":
+        today_df.sort_values(by=["Total Debt"], ascending=True,inplace=True)
+    elif indicator == "High Debt to Equity":
+        today_df.sort_values(by=["Debt to Equity"], ascending=False, inplace=True)
+    elif indicator == "Low Debt to Equity":
+        today_df.sort_values(by=["Debt to Equity"], ascending=True, inplace=True)
+    elif indicator == "Market Cap":
+        today_df.sort_values(by=["Market Cap"], ascending=False, inplace=True)
+    elif indicator == "Forward P/E":
+        today_df.sort_values(by=["Forward P/E"], ascending=False, inplace=True)
+        
+    return today_df
+
 
 # %%
 # Start and End Dates (6 months)
