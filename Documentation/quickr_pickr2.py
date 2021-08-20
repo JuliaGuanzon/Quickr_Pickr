@@ -161,14 +161,13 @@ def run():
     # Let user choose Indicator
     indicator = choose_indicator()
 
-<<<<<<< HEAD:qp_main_draft.py
         # Sort by chosen indicator
-        sorted_list = sort_by_indicator(today_df, indicator)
-        sorted_list_head = sorted_list.head(2) #SW: Thinking of adding an option to choose how many results you'd like.
-        print(sorted_list_head)
+    sorted_list = sort_by_indicator(today_df, indicator)
+    sorted_list_head = sorted_list.head(2) #SW: Thinking of adding an option to choose how many results you'd like.
+    print(sorted_list_head)
 
-        # Ask if they want to save the data?
-        response = questionary.select("Would you like to save the sorted data as a csv?",
+    # Ask if they want to save the data?
+    response = questionary.select("Would you like to save the sorted data as a csv?",
         choices=[
             "YES",
             "NO"
@@ -204,13 +203,6 @@ def run():
             sorted_list.to_csv(f"data/{todays_date}_long_data.csv", index_label="Ticker")
 
         #
-=======
-    # Sort by chosen indicator
-    sorted_list = sort_by_indicator(today_df, indicator)
-    sorted_list_head = sorted_list.head(2) #SW: Thinking of adding an option to choose how many results you'd like.
-    print(sorted_list_head)
-
->>>>>>> f0ebd2ae6f562c399bca6157359d4927f98ef47c:Documentation/quickr_pickr2.py
     # Check to see if the user would like a chart or more info on a specific stock.
     result = chart_or_info_q(sp500_ticks)
     pp.pprint(result)
