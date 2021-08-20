@@ -200,6 +200,17 @@ def run():
         sorted_list_head = sorted_list.head(2) #SW: Thinking of adding an option to choose how many results you'd like.
         print(sorted_list_head)
 
+        # Ask if they want to save the data?
+        response = questionary.select("Would you like to save the sorted data as a csv?",
+        choices=[
+            "YES",
+            "NO"
+        ]).ask()
+
+        if response == "YES":
+            todays_date = dt.datetime.now().date().isoformat()
+            sorted_list.to_csv(f"data/{todays_date}_data.csv", index_label="Ticker")
+
     else:
         test_list = ["AAPL", "GOOG", "WMT"] #SW: Just a test list, this will be sp500_ticks
         df = get_long_indicators(test_list) # SW: Will use (sp500_ticks)
@@ -213,6 +224,17 @@ def run():
         sorted_long = sort_by_long_indicator(df, long_indicator)
         sorted_long_head = sorted_long.head(2)
         print(sorted_long_head)
+
+        # Ask if they want to save the data?
+        response = questionary.select("Would you like to save the sorted data as a csv?",
+        choices=[
+            "YES",
+            "NO"
+        ]).ask()
+
+        if response == "YES":
+            todays_date = dt.datetime.now().date().isoformat()
+            sorted_list.to_csv(f"data/{todays_date}_long_data.csv", index_label="Ticker")
 
         #
     # Check to see if the user would like a chart or more info on a specific stock.
