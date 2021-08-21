@@ -22,7 +22,7 @@ Our goal is to give the user an efficient and informative experience. Investing 
 ---
   
 ## Technologies
-This application was created using JupyterLab and VS Code, as the main language used was Pandas/Python. To be able to run this program, this must be ran using a Git Bash terminal, or VS code. 
+This application was created using JupyterLab and VS Code, as the main language used was Pandas/Python. To be able to run this program, this must be ran using a Git Bash terminal. 
 
 **Systems**
 
@@ -71,7 +71,7 @@ jupyter lab
 
 To exit out of JupyterLab hit: Ctrl + C
 
-It is important to also instal Pandas as the majority of code use is using language from Pandas.
+It is important to also install Pandas.
 
 ```Pandas
 conda activate dev
@@ -107,13 +107,13 @@ conda install matplotlib
 Fire
     
 ```
-  pip install fire
+pip install fire
 ```
 
 Questionary
     
 ```
-  pip install questionary
+pip install questionary
 ```
 
 </details>
@@ -143,7 +143,7 @@ In order to make this application work we had to import the following:
 
 The above imports consist of libraries that assist us with the analytics and function files that import the calculations we need for the indicators.
 
-The usage of questionary to build the intake form was essential to the structure of the application as we wanted to make this a seamless application that was quick to move through and as simple as a click of a button. By engaging the users through a questionaire, we wanted them to be able to select from short-term or longterm indicators that Quickr Pickr believes will give the user the most gains.
+The usage of questionary to build the intake form was essential to the structure of the application as we wanted to make this a seamless application that was quick to move through and as simple as a click of a button. By engaging the users through a questionaire, we wanted them to be able to select from short-term or longterm indicators that Quickr Pickr believes will provide the user the most gains.
 
 Only one indicator can be chosen at a time when running this application. The user can choose from the following in the drop down menus:
 
@@ -162,7 +162,9 @@ Relative Strength Index (RSI) is a momentum indicator used to measure the magnit
 <summary> Simple Moving Average (50%) </summary>
 Simple Moving Average (SMA) is a technical indicator that aids in determining if a stock is in a uptrend or downtrend. To calculate this, we take the average of a range of closing prices divided by the amount of periods in that range.
 
-Our SMA50% is the percent that a stock is above or below its 50 day simple moving average
+    
+Our SMA50% is the percent that a stock is above or below its 50 day simple moving average.
+
 * High SMA50% values indicate an uptrend for the stock. 
 * Low SMA50% value indicates a downtrend for the stock. 
     
@@ -206,6 +208,7 @@ Debt to Equity is reflected by the stock company's total liabilities and shareho
 * Low Debt to Equity indicates the stock has less risk associated with it.
  
 [More information on Debt to Equity](https://www.investopedia.com/terms/d/debtequityratio.asp)
+    
 </details>
 
 <details>
@@ -213,7 +216,7 @@ Debt to Equity is reflected by the stock company's total liabilities and shareho
 Market Capitalization (Market Cap) refers to how much a company is worth as determined by the stock market. It is the total market value of all outstanding shares.
     
 [More information on Market Capitalization](https://www.investopedia.com/terms/m/marketcapitalization.asp)
-    
+
 </details>
 
 <details>
@@ -221,11 +224,12 @@ Market Capitalization (Market Cap) refers to how much a company is worth as dete
 Forward Price Earnings is a ratio of price-to-earnings using forecasted earnings for the P/E calculation. 
     
 [More information on Forward P/E](https://www.investopedia.com/terms/f/forwardpe.asp)    
+    
 </details>
 
 After answering the criteria questions, the application provides the user with the ability to print a chart, gather more information about the stock, or neither. Once the user has chosen what type of information they need, the application will exit the user. The user is more than welcome to run different indicators, but they will have to reopen the application and start over.
 
-To ensure that this application runs efficienty, we have tested the product through various scenarios, which can be seen in the Documenation folder.
+To ensure that this application runs efficiently, we have tested the product through various scenarios, which can be seen in the Documenation folder.
 
 ---
 
@@ -243,13 +247,13 @@ Next, the user will select from short-term or long-term indicators.
 The application will run the calcualtion of the indicators in the background and the user will be able to call one indicator to sort the stocks. The user is then provided with a list of information needed to make decisions on what stocks to invest in.
 ![image](https://user-images.githubusercontent.com/84649228/130188715-63adbc9d-5d4a-4457-9f5c-f22a694129a2.png)
 
-The application sorts the stocks by the indicator to provide the best stock possible to the user.
+The application sorts the stocks by the indicator to provide the best stocks to the user.
 ![image](https://user-images.githubusercontent.com/84649228/130283908-561167cb-06d0-4d96-ab77-03067905b04e.png)
 
-Once the user gathers information on the sorted stocks, the user had the option to create a chart or to just be provided with one stock's information. Please note that the chart only presents graphs on price and the MACD. If the user choses information, they will be provided with entire financial summary of the stock company.
+Once the user is provided with the sorted stocks, the user has the option to create a chart or to just be provided with one stock's information. Please note that the chart only presents graphs on price and the MACD. If the user choses information, they will be provided with entire financial summary of the stock's company.
 ![image](https://user-images.githubusercontent.com/84649228/130188980-ff4a4421-e57a-4259-a909-7b74f2b1bac6.png)
 
-The user will be asked to choose a stock to look into, and it must be a stock from the S&P 500. If they choose a stock outside of the S&P 500, they will be asked again to pick a stock form the S&P 500.
+The user will be asked to choose a stock to look into, and it must be a stock from the S&P 500. If they choose a stock outside of the S&P 500, they will be asked again to pick a stock from the S&P 500.
 ![image](https://user-images.githubusercontent.com/84649228/130189074-933a63ce-08f0-4104-bd6f-d087024e60f7.png)
 
 If a chart is chosen, the user is provided a chart of which they are able to save.
@@ -259,7 +263,7 @@ If information is chosen, the user will be provided with rows of data. The pictu
 
 ![image](https://user-images.githubusercontent.com/84649228/130283473-ace8455c-19b5-4032-8f26-0241c77c9855.png)
 
-When the user is done with using the application, the system will exit the user out of the application. Below is an example of the entire application ran in a terminal. 
+When the user is done making selections, the system will exit the user out of the application. Below is an example of the entire application ran in a terminal. 
 ![image](https://user-images.githubusercontent.com/84649228/130189144-08b7b8cd-2a13-468e-ad50-1d7b001888e3.png)
 
 ---
