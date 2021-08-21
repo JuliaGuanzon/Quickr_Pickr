@@ -225,6 +225,8 @@ Forward Price Earnings is a ratio of price-to-earnings using forecasted earnings
 
 After answering the criteria questions, the application provides the user with the ability to print a chart, gather more information about the stock, or neither. Once the user has chosen what type of information they need, the application will exit the user. The user is more than welcome to run different indicators, but they will have to reopen the application and start over.
 
+To ensure that this application runs efficienty, we have tested the product through various scenarios, which can be seen in the Documenation folder.
+
 ---
 
 ## Examples
