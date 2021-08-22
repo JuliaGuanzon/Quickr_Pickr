@@ -159,7 +159,7 @@ Relative Strength Index (RSI) is a momentum indicator used to measure the magnit
 </details>
 
 <details>
-<summary> Simple Moving Average (50%) </summary>
+<summary> Simple Moving Average (50 Day) </summary>
 Simple Moving Average (SMA) is a technical indicator that aids in determining if a stock is in a uptrend or downtrend. To calculate this, we take the average of a range of closing prices divided by the amount of periods in that range.
 
     
