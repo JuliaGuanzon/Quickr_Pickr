@@ -187,8 +187,8 @@ def run():
     if answer == "Short Term Indicators":
 
         # Build the indicator DataFrame
-        test_list = ["AAPL", "WMT", "GOOG"] #SW: Test list for speed of testing, will be sp500_ticks
-        today_df = get_indicators(test_list) #SW: get_indicators will use (sp500_ticks) in final build
+        #test_list = ["AAPL", "WMT", "GOOG"] #SW: Test list for speed of testing, will be sp500_ticks
+        today_df = get_indicators(sp500_ticks) #SW: get_indicators will use (sp500_ticks) in final build
 
         print(today_df)
 
@@ -197,12 +197,12 @@ def run():
 
         # Sort by chosen indicator
         sorted_list = sort_by_indicator(today_df, indicator)
-        sorted_list_head = sorted_list.head(2) #SW: Thinking of adding an option to choose how many results you'd like.
+        sorted_list_head = sorted_list.head(10) #SW: Thinking of adding an option to choose how many results you'd like.
         print(sorted_list_head)
 
     else:
-        test_list = ["AAPL", "GOOG", "WMT"] #SW: Just a test list, this will be sp500_ticks
-        df = get_long_indicators(test_list) # SW: Will use (sp500_ticks)
+        # test_list = ["AAPL", "GOOG", "WMT"] #SW: Just a test list, this will be sp500_ticks
+        df = get_long_indicators(sp500_ticks) # SW: Will use (sp500_ticks)
 
         print(df)
 
@@ -211,12 +211,12 @@ def run():
 
         # Sort by chosen indicator
         sorted_long = sort_by_long_indicator(df, long_indicator)
-        sorted_long_head = sorted_long.head(2)
+        sorted_long_head = sorted_long.head(10)
         print(sorted_long_head)
 
         #
     # Check to see if the user would like a chart or more info on a specific stock.
-    result = chart_or_info_q(test_list) #SW: Will be sp500_ticks
+    result = chart_or_info_q(sp500_ticks) #SW: Will be sp500_ticks
     pp.pprint(result)
 
     sys.exit(f"Thank you for using Quickr Pickr! See you soon!")
